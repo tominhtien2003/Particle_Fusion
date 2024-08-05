@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
-    public PlayerInputAction inputAction { get; private set; }
-    private void Start()
+    public Vector3 GetMoveDirectionPlayer()
     {
-        inputAction = new PlayerInputAction();
-        inputAction.Player.Enable();
-    }
-    public Vector2 GetMoveDirectionPlayer()
-    {
-        return inputAction.Player.Move.ReadValue<Vector2>();
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float VerticalInput = Input.GetAxis("Vertical");
+        return new Vector3(horizontalInput, 0f, VerticalInput);
     }
 }
